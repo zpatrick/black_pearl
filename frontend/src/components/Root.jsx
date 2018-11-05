@@ -1,14 +1,19 @@
 import React from 'react';
-import { Route, Router, Switch } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import history from './history';
-import App from './App';
+import Layout from './Layout';
+import Dashboard from './Dashboard';
+import Audio from './Audio';
+import Video from './Video';
 
 function Root() {
   return (
       <Router history={history}>
-        <Switch>
-          <Route component={App}/>
-        </Switch>
+        <Layout>
+          <Route exact path="/audio" component={Audio} />
+          <Route exact path="/video" component={Video} />
+          <Route exact path="/" component={Dashboard} /> 
+        </Layout>
       </Router>
   );
 }
